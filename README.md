@@ -1,3 +1,3 @@
 # CRYPTO BUTLER
 
-## Keeping track of all your amazing coins
+Keeping track of all your amazing coins
