@@ -5,7 +5,7 @@ import './Portfolio.css';
 class  PortfolioContainer extends Component {
     render() { 
         return (
-            <div className="container portfolio-container">
+            <div className="portfolio-container">
                 <h2 className="portfolios-header">PORTFOLIOS</h2>
                 <div className="row">
                     {

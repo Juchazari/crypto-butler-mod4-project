@@ -4,12 +4,15 @@ import { Doughnut } from 'react-chartjs-2';
 class PortfolioCard extends Component {
     state = {
         chartData: {
-            labels: ["BTC", "LTC", "ETH"],
-            datasets: [
-                {
-                    data: [5000, 2500, 1000]
-                }
-            ]
+            labels: [],
+            datasets: [{ data: [] }],
+            backgroundColor: [],
+            borderWidth: 0
+        },
+        chartOptions: {
+            legend: {
+                display: false
+            }
         }
     }
 
@@ -18,6 +21,11 @@ class PortfolioCard extends Component {
 
         let labels = [];
         let data = [];
+        let backgroundColor = [
+            'rgba(255, 99, 132, 0.8)',
+            'rgba(54, 162, 235, 0.8)',
+            'rgba(255, 206, 86, 0.8)'
+        ]
 
         transactions.forEach(transaction => {
             labels.push(transaction.coin.symbol)
@@ -27,11 +35,7 @@ class PortfolioCard extends Component {
         this.setState({
             chartData: {
                 labels,
-                datasets: [
-                    {
-                        data
-                    }
-                ]
+                datasets: [{ data, backgroundColor, borderWidth: 1 }],
             }
         })
     }
@@ -43,11 +47,12 @@ class PortfolioCard extends Component {
                 <div className="portfolio-card">
                     <div className="portfolio-card-header">
                         <h3>{portfolio.name}</h3>
-                        <div>
-                            <Doughnut 
-                                data={this.state.chartData}
-                            />
-                        </div>
+                    </div>
+                    <div>
+                        <Doughnut 
+                            data={this.state.chartData}
+                            options={this.state.chartOptions}
+                        />
                     </div>
                 </div>
             </div>

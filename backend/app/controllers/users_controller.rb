@@ -9,6 +9,9 @@ class UsersController < ApplicationController
                         except: [:coin_id, :portfolio_id]
                     }
                 }
+            },
+            watchlists: {
+                include: :coins
             }
         }
     end

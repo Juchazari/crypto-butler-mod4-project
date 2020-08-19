@@ -2,27 +2,34 @@ import React, { Component } from 'react';
 import './Dashboard.css';
 import Header from '../Header/Header';
 import PortfolioContainer from '../Portfolio/PortfolioContainer';
+import WatchlistContainer from '../Watchlist/WatchlistContainer';
 
-const USER_PORTFOLIOS = "http://localhost:3000/users/1/portfolios";
+const API = "http://localhost:3000/users";
 
 class  Dashboard extends Component {
 
     state = {
         portfolios: [],
+        watchlists: []
     }
     
     componentDidMount() {
-        fetch(USER_PORTFOLIOS)
+        fetch(API)
             .then(res => res.json())
-            .then(portfolios => this.setState({ portfolios }))
+            .then(users => {
+                const portfolios = users[0].portfolios;
+                const watchlists = users[0].watchlists;
+                this.setState({ portfolios, watchlists })
+            })
     }
 
     render() { 
         return (
             <div className="dashboard">
                 <Header />
-                <main>
+                <main className="container">
                     <PortfolioContainer portfolios={this.state.portfolios} />
+                    <WatchlistContainer watchlists={this.state.watchlists} />
                 </main>
             </div>
         );
