@@ -2,7 +2,7 @@
     margin-top: 30px;
 }
 
-.portfolios-header {
+.portfolios-header h2 {
     font-size: 20px;
     margin-bottom: 15px; 
 }
@@ -16,6 +16,7 @@
     padding: 10px;
     cursor: pointer;
     transition: box-shadow 0.2s ease-in;
+    margin-bottom: 30px;
 }
 
 .portfolio-card:hover {
@@ -24,4 +25,13 @@
 
 .portfolio-card-header h3 {
     font-size: 16px;
+}
+
+.portfolio-new-page, .portfolio-edit-page {
+    padding-top: 60px;
+}
+
+.portfolios-all a {
+    color: white;
+    text-decoration: none;
 }

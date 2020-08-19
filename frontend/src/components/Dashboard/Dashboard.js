@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Dashboard.css';
-import Header from '../Header/Header';
+
 import PortfolioContainer from '../Portfolio/PortfolioContainer';
 import WatchlistContainer from '../Watchlist/WatchlistContainer';
 
@@ -25,13 +25,12 @@ class  Dashboard extends Component {
 
     render() { 
         return (
-            <div className="dashboard">
-                <Header />
-                <main className="container">
+            <>
+                <main className="dashboard">
                     <PortfolioContainer portfolios={this.state.portfolios} />
                     <WatchlistContainer watchlists={this.state.watchlists} />
                 </main>
-            </div>
+            </>
         );
     }
 }

@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import PortfolioCard from './PortfolioCard';
+import { Link } from "react-router-dom";
 import './Portfolio.css';
+
+import PortfolioCard from './PortfolioCard';
 
 class  PortfolioContainer extends Component {
     render() { 
         return (
             <div className="portfolio-container">
-                <h2 className="portfolios-header">PORTFOLIOS</h2>
-                <div className="row">
+                <div className="portfolios-header">
+                    <h2>PORTFOLIOS</h2>
+                    <h2><Link to="/portfolio/new">+</Link></h2>
+                </div>
+                <div className="row portfolios-all">
                     {
                         this.props.portfolios.map(portfolio => (
                             <PortfolioCard key={portfolio.id} portfolio={portfolio} />  

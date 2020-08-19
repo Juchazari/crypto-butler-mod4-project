@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { Link } from "react-router-dom";
 
 class PortfolioCard extends Component {
     state = {
@@ -44,17 +45,19 @@ class PortfolioCard extends Component {
         const portfolio = this.props.portfolio;
         return (
             <div className="col-md-4">
-                <div className="portfolio-card">
-                    <div className="portfolio-card-header">
-                        <h3>{portfolio.name}</h3>
+                <Link to={`/portfolio/${portfolio.id}/edit`}>
+                    <div className="portfolio-card">
+                        <div className="portfolio-card-header">
+                            <h3>{portfolio.name}</h3>
+                        </div>
+                        <div>
+                            <Doughnut 
+                                data={this.state.chartData}
+                                options={this.state.chartOptions}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <Doughnut 
-                            data={this.state.chartData}
-                            options={this.state.chartOptions}
-                        />
-                    </div>
-                </div>
+                </Link>
             </div>
         );
     }
