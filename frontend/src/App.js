@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Header from './components/Header/Header';
+import HeaderNav from './components/Header/HeaderNav';
 import Main from './components/Main/Main';
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Main />
-    </>
-  );
+class App extends Component {
+  render() {
+    return (
+      <>
+        <HeaderNav />
+        <Main />
+      </>
+    );
+  }
 }
 
 export default App;
