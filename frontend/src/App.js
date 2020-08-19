@@ -12,9 +12,9 @@ function App() {
       <Header />
       <div className="container">
         <Switch>
-            <Route component={PortfolioEdit} path="/portfolio/:id/edit" />
-            <Route component={PortfolioNew} path="/portfolio/new" />
-            <Route component={Dashboard} path="/dashboard" />
+            <Route component={() => <PortfolioEdit />} exact path="/portfolio/:id" />
+            <Route component={PortfolioNew} exact path="/portfolio/new" />
+            <Route component={Dashboard} exact path="/dashboard" />
         </Switch>
       </div>
     </>

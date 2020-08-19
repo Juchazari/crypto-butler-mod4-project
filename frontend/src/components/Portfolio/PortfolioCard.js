@@ -45,7 +45,7 @@ class PortfolioCard extends Component {
         const portfolio = this.props.portfolio;
         return (
             <div className="col-md-4">
-                <Link to={`/portfolio/${portfolio.id}/edit`}>
+                <Link to={`/portfolio/${portfolio.id}`}>
                     <div className="portfolio-card">
                         <div className="portfolio-card-header">
                             <h3>{portfolio.name}</h3>
