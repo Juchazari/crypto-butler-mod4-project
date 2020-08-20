@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import PortfolioContainer from '../Portfolio/PortfolioContainer';
 import WatchlistContainer from '../Watchlist/WatchlistContainer';
 
-class DashboardHome extends Component {
-    render() {
-        return (
-            <>
-                <PortfolioContainer
-                    portfolios={this.props.portfolios}
-                    showPortfolioEdit={this.props.showPortfolioEdit}
-                />
-                <WatchlistContainer watchlists={this.props.watchlists} />
-            </>
-        )
-    }
-}
+const DashboardHome = (props) => {
+  return (
+    <div className="dashboard-home">
+      <PortfolioContainer
+        portfolios={props.portfolios}
+        portfolioClick={props.portfolioClick}
+      />
+      <WatchlistContainer watchlists={props.watchlists} />
+    </div>
+  );
+};
 
 export default DashboardHome;

@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-# CEREAL
-gem 'active_model_serializers'
 # HTTPARTY
 gem 'httparty'
 # Faker
