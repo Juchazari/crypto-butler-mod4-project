@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-
+import SearchResults from './SearchResults'
 
 class PortfolioNew extends Component {
 
     state = {
         name: "",
-        coins: []
+        coins: [],
+        searchTerm: ""
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/coins')
+        .then(res => res.json())
+        .then(res => this.setState({
+            coins: res
+        }))
     }
 
     handleChange = (e) => {
@@ -14,10 +23,24 @@ class PortfolioNew extends Component {
         })
     }
 
-    handleSelectChange = (e) => {
+    // handleSelectChange = (e) => {
+    //     this.setState({
+    //         coins: [e.target.value]
+    //     })
+    // }
+
+    handleSearch = (e) => {
         this.setState({
-            coins: [e.target.value]
+            searchTerm: e.target.value.toLowerCase()
         })
+    }
+
+    dynamicSearch = () => {
+        if (this.state.searchTerm !== "") {
+            return this.state.coins.filter(c => c.name.toLowerCase().includes(this.state.searchTerm) || c.symbol.toLowerCase().includes(this.state.searchTerm))
+        } else {
+            return null
+        }
     }
 
     handleSubmit = (e) => {
@@ -30,7 +53,7 @@ class PortfolioNew extends Component {
                 Accept: 'application/json'
             },
             body: JSON.stringify(this.state)
-        })
+        }).then(this.props.history.push('/dashboard'))
     }
 
     render() { 
@@ -44,14 +67,18 @@ class PortfolioNew extends Component {
                         value={this.state.name.value}
                         placeholder="Portfolio Name..."
                         onChange={this.handleChange}
+                    /><br />
+                    <input 
+                        type="text"
+                        placeholder="Search coins by name..."
+                        onChange={(e) => this.handleSearch(e)}
                     />
-                    <select onChange={this.handleSelectChange}>
-                        <option defaultValue>Please select a coin</option>
-                        <option value="39">DigiByte</option>
-                        <option value="40">Dogecoin</option>
-                        <option value="58">Qtum</option>
-                        <option value="81">Bitcoin Gold</option>
-                    </select>
+                    {this.state.searchTerm !== "" ? 
+                    <SearchResults results={this.dynamicSearch()} />
+                    :
+                    null
+                    }
+                    <br />
                     <input type="submit" value="Create" />
                 </form>
             </div>

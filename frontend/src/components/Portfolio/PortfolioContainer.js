@@ -9,8 +9,7 @@ class  PortfolioContainer extends Component {
         return (
             <div className="portfolio-container">
                 <div className="portfolios-header">
-                    <h2>PORTFOLIOS</h2>
-                    <h2><Link to="/portfolio/new">+</Link></h2>
+                    <h2>PORTFOLIOS <Link to="/portfolios">+</Link></h2>
                 </div>
                 <div className="row portfolios-all">
                     {

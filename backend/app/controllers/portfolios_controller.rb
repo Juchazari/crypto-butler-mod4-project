@@ -30,11 +30,17 @@ class PortfoliosController < ApplicationController
     def update
         user = User.first
         portfolio = Portfolio.find(params[:id])
+        portfolio.update(
+            name: portfolio_params[:name]
+        )
     end
 
     private
 
     def portfolio_params
-        params.require(:portfolio).permit(:name)
+        params.require(:portfolio).permit(
+            :name,
+            transactions: [:bought_price, :quantity]
+        )
     end
 end

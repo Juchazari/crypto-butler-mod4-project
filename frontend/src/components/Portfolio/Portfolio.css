@@ -35,3 +35,10 @@
     color: white;
     text-decoration: none;
 }
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+}

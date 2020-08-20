@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 class PortfolioCard extends Component {
     state = {
+        portfolio: this.props.portfolio,
         chartData: {
             labels: [],
             datasets: [{ data: [] }],
@@ -41,17 +42,20 @@ class PortfolioCard extends Component {
         })
     }
 
-    render() { 
+    render() {
         const portfolio = this.props.portfolio;
+        console.log(this.state)
         return (
             <div className="col-md-4">
-                <Link to={`/portfolio/${portfolio.id}`}>
+                <Link to={{
+                    pathname: `/portfolio/${portfolio.id}`
+                }}>
                     <div className="portfolio-card">
                         <div className="portfolio-card-header">
                             <h3>{portfolio.name}</h3>
                         </div>
                         <div>
-                            <Doughnut 
+                            <Doughnut
                                 data={this.state.chartData}
                                 options={this.state.chartOptions}
                             />
@@ -62,5 +66,5 @@ class PortfolioCard extends Component {
         );
     }
 }
- 
+
 export default PortfolioCard;
