@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :portfolios, only: [:create, :show, :update]
-  resources :transactions, only: [:create]
+  resources :transactions, only: [:create, :update, :destroy]
   resources :coins, only: [:index]
 end

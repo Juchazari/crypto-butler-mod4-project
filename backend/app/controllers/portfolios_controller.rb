@@ -17,15 +17,15 @@ class PortfoliosController < ApplicationController
     #     )
     # end
 
-    # def show
-    #     portfolio = Portfolio.find(params[:id])
-    #     render json: portfolio, include: {
-    #         transactions: {
-    #             include: :coin,
-    #             except: [:coin_id, :portfolio_id]
-    #         }
-    #     }
-    # end
+    def show
+        portfolio = Portfolio.find(params[:id])
+        render json: portfolio, include: {
+            transactions: {
+                include: :coin,
+                except: [:coin_id, :portfolio_id]
+            }
+        }
+    end
 
     # def update
     #     user = User.first
