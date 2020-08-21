@@ -1,5 +1,4 @@
-.portfolio-container,
-.portfolio-show {
+.portfolio-container {
   margin-top: 30px;
 }
 
@@ -71,4 +70,8 @@
 
 .ps-header-th:last-child {
   border-right: none;
+}
+
+.ps-body-coins {
+  margin-top: 40px;
 }

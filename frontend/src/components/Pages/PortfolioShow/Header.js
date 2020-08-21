@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PortfolioShow = (props) => {
+const Header = (props) => {
   const initialInvestment = () => {
     let investment = 0;
 
@@ -37,27 +37,24 @@ const PortfolioShow = (props) => {
 
     return message;
   };
-
   return (
-    <div className="portfolio-show">
-      <div className="ps-header">
-        <div className="ps-header-tr">
-          <div className="ps-header-th">
-            <p>INITIAL INVESTMENT</p>
-            <span>${initialInvestment()}</span>
-          </div>
-          <div className="ps-header-th">
-            <p>PORTFOLIO AGE</p>
-            <span>{portfolioAge()}</span>
-          </div>
-          <div className="ps-header-th">
-            <p>CURRENT WORTH</p>
-            <span>$12,250.82</span>
-          </div>
+    <div className="ps-header">
+      <div className="ps-header-tr">
+        <div className="ps-header-th">
+          <p>INITIAL INVESTMENT</p>
+          <span>${initialInvestment()}</span>
+        </div>
+        <div className="ps-header-th">
+          <p>PORTFOLIO AGE</p>
+          <span>{portfolioAge()}</span>
+        </div>
+        <div className="ps-header-th">
+          <p>CURRENT WORTH</p>
+          <span>$12,250.82</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default PortfolioShow;
+export default Header;

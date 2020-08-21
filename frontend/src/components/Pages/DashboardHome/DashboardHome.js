@@ -1,7 +1,7 @@
 import React from 'react';
 
-import PortfolioContainer from '../Portfolio/PortfolioContainer';
-import WatchlistContainer from '../Watchlist/WatchlistContainer';
+import PortfolioContainer from '../../Portfolio/PortfolioContainer';
+import WatchlistContainer from '../../Watchlist/WatchlistContainer';
 
 const DashboardHome = (props) => {
   return (

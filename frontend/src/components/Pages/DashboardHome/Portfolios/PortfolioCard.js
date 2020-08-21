@@ -38,7 +38,10 @@ const PortfolioCard = (props) => {
     <>
       <div className="col-md-4">
         <Link to={`/dashboard/portfolios/${props.portfolio.id}`}>
-          <div className="portfolio-card">
+          <div
+            className="portfolio-card"
+            onClick={() => props.portfolioClick(props.portfolio)}
+          >
             <div className="portfolio-card-header">
               <h3>{props.portfolio.name}</h3>
             </div>

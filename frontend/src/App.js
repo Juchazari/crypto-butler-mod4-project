@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import HeaderNav from './components/Header/HeaderNav';
-import DashboardHome from './components/DashboardHome/DashboardHome';
-import PortfolioShow from './components/Portfolio/PortfolioShow';
+import DashboardHome from './components/Pages/DashboardHome/DashboardHome';
+import PortfolioShow from './components/Pages/PortfolioShow/PortfolioShow';
 
 const App = () => {
   const API = 'http://localhost:3000/users';
   const [portfolios, setPortfolios] = useState([]); // For All Portfolio Cards
   const [watchlists, setWatchlists] = useState([]);
-  const [portfolio, setPortfolio] = useState({}); // For the Single View of that Portfolio
 
   useEffect(() => {
     fetch(API)
@@ -20,27 +19,17 @@ const App = () => {
       });
   }, []);
 
-  const portfolioClick = (portfolio) => {
-    setPortfolio(portfolio);
-  };
-
   return (
     <>
       <HeaderNav />
       <main className="container" id="main">
         <Switch>
-          <Route
-            path="/dashboard/portfolios/:id"
-            component={() => <PortfolioShow portfolio={portfolio} />}
-          />
+          <Redirect exact from="/" to="/dashboard" />
+          <Route path="/dashboard/portfolios/:id" component={PortfolioShow} />
           <Route
             path="/dashboard"
             component={() => (
-              <DashboardHome
-                portfolios={portfolios}
-                portfolioClick={portfolioClick}
-                watchlists={watchlists}
-              />
+              <DashboardHome portfolios={portfolios} watchlists={watchlists} />
             )}
           />
         </Switch>
