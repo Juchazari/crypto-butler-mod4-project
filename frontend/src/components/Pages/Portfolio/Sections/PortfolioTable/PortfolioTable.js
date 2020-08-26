@@ -1,20 +1,21 @@
 import React from 'react';
 
-import TableHead from '../../CustomTable/TableHead';
-import TableBody from '../../CustomTable/TableBody';
-import TableRow from '../../CustomTable/TableRow';
-import TableCell from '../../CustomTable/TableCell';
+import TableHead from '../../../../CustomTable/TableHead';
+import TableBody from '../../../../CustomTable/TableBody';
+import TableRow from '../../../../CustomTable/TableRow';
+import TableCell from '../../../../CustomTable/TableCell';
+import Portfolio from '../../Portfolio';
 
-const CoinsTable = (props) => {
+const PortfolioTable = (props) => {
   return (
     <div className="coins-table">
       <TableHead>
         <TableRow>
           <TableCell>
-            <p>ASSET</p>
+            <p className="thead-tr-th-first">ASSET</p>
           </TableCell>
           <TableCell>
-            <p>PER COIN PRICE</p>
+            <p>PRICE PER COIN (AVG)</p>
           </TableCell>
           <TableCell>
             <p>TOTAL SPENT</p>
@@ -27,12 +28,14 @@ const CoinsTable = (props) => {
           </TableCell>
         </TableRow>
       </TableHead>
-      <TableBody>
+      <TableBody style={'crypto-butler-tbody'}>
         {props.coins.map((coin, idx) => {
           return (
             <TableRow key={idx}>
               <TableCell>
-                <img src={coin.url_logo} alt={coin.name} />
+                <div className="table-coin-image-box">
+                  <img src={coin.url_logo} alt={coin.name} />
+                </div>
                 <p>{coin.symbol}</p>
               </TableCell>
               <TableCell>
@@ -55,4 +58,4 @@ const CoinsTable = (props) => {
   );
 };
 
-export default CoinsTable;
+export default PortfolioTable;

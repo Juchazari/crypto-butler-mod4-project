@@ -1,9 +1,9 @@
 import React from 'react';
-import './Portfolio.css';
+import './Portfolios.css';
 
 import PortfolioCard from './PortfolioCard';
 
-const PortfolioContainer = (props) => {
+const Portfolios = (props) => {
   return (
     <div className="portfolio-container">
       <div className="portfolios-header">
@@ -11,15 +11,11 @@ const PortfolioContainer = (props) => {
       </div>
       <div className="row portfolios-all">
         {props.portfolios.map((portfolio) => (
-          <PortfolioCard
-            key={portfolio.id}
-            portfolio={portfolio}
-            portfolioClick={props.portfolioClick}
-          />
+          <PortfolioCard key={portfolio.id} portfolio={portfolio} />
         ))}
       </div>
     </div>
   );
 };
 
-export default PortfolioContainer;
+export default Portfolios;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import TableHead from '../../CustomTable/TableHead';
-import TableBody from '../../CustomTable/TableBody';
-import TableRow from '../../CustomTable/TableRow';
-import TableCell from '../../CustomTable/TableCell';
-import EditTransactionPopup from './EditTransactionPopup';
-import NewTransactionPopup from './NewTransactionPopup';
+import TableHead from '../../../../CustomTable/TableHead';
+import TableBody from '../../../../CustomTable/TableBody';
+import TableRow from '../../../../CustomTable/TableRow';
+import TableCell from '../../../../CustomTable/TableCell';
+import EditTransactionPopup from '../../Modals/EditTransactionModal';
+import NewTransactionPopup from '../../Modals/NewTransactionModal';
 
 const TransactionsTable = (props) => {
   const transactions = props.transactions;
@@ -23,14 +23,14 @@ const TransactionsTable = (props) => {
   };
 
   return (
-    <div className="coins-table">
+    <div className="portfolio-tables">
+      <div className="cb-section-header">
+        <h2>Transactions</h2>
+      </div>
       <TableHead>
         <TableRow>
-          <div className="add-transaction" onClick={() => setNewtPopup(true)}>
-            <i className="fa fa-plus"></i>
-          </div>
           <TableCell>
-            <p>ASSET</p>
+            <p className="thead-tr-th-first">ASSET</p>
           </TableCell>
           <TableCell>
             <p>PRICE PER COIN</p>
@@ -42,19 +42,23 @@ const TransactionsTable = (props) => {
             <p>Date</p>
           </TableCell>
           <TableCell>
-            <p>Edit</p>
+            <p className="add-transaction" onClick={() => setNewtPopup(true)}>
+              <i className="fa fa-plus"></i>
+            </p>
           </TableCell>
         </TableRow>
       </TableHead>
-      <TableBody>
+      <TableBody style={'crypto-butler-tbody-light'}>
         {transactions.map((transaction) => {
           return (
             <TableRow key={transaction.id}>
               <TableCell>
-                <img
-                  src={transaction.coin.url_logo}
-                  alt={transaction.coin.name}
-                />
+                <div className="table-coin-image-box">
+                  <img
+                    src={transaction.coin.url_logo}
+                    alt={transaction.coin.name}
+                  />
+                </div>
                 <p>{transaction.coin.symbol}</p>
               </TableCell>
               <TableCell>
@@ -84,7 +88,10 @@ const TransactionsTable = (props) => {
         />
       ) : null}
       {newtPopup ? (
-        <NewTransactionPopup newTransaction={props.newTransaction} />
+        <NewTransactionPopup
+          newTransaction={props.newTransaction}
+          hidePopup={() => setNewtPopup(false)}
+        />
       ) : null}
     </div>
   );

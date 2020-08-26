@@ -1,0 +1,75 @@
+.coin-search-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-search-input {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  width: 300px;
+}
+
+.new-transaction-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.new-transaction-cb-modal {
+  background-color: #0d0b13;
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+
+.chosen-coin {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0px 10px 0px;
+}
+
+.chosen-coin img {
+  width: 60px;
+  height: 60px;
+}
+
+.new-transaction-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-transaction-form label {
+  margin: 0;
+  padding: 0;
+}
+
+.new-transaction-form input {
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  padding: 3px;
+}
+
+.new-transaction-cancel-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.new-transaction-cancel-btn button {
+  border: none;
+  border-radius: 5px;
+  padding: 3px 8px;
+}

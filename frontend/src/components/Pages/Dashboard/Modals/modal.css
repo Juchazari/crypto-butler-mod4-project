@@ -1,0 +1,66 @@
+.new-watchlist-modal {
+  background-color: #0d0b13;
+  border-radius: 5px;
+  padding: 20px 50px;
+}
+
+.new-watchlist-modal .watchlist-search-input {
+  border: none;
+  outline: none;
+  padding: 3px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.new-watchlist-modal-form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-watchlist-modal-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.new-watchlist-modal-btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 3px 5px;
+  margin: 10px;
+}
+
+.new-watchlist-coin-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d0b13;
+  padding: 20px 50px;
+  border-radius: 5px;
+}
+
+.new-watchlist-coin-modal input {
+  width: 300px;
+  border: none;
+  outline: none;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+
+.new-watchlist-coin-modal button {
+  width: 80px;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.new-watchlist-coin-cancel-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}

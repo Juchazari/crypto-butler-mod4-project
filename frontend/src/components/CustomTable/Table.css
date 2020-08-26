@@ -8,10 +8,27 @@
   border-radius: 0px 0px 5px 5px;
 }
 
+.crypto-butler-tbody-light {
+  background-color: #e7e7e7;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.crypto-butler-tbody-light p {
+  color: #171420;
+}
+
 .crypto-butler-tr {
   width: 100%;
   height: 50px;
   display: flex;
+}
+
+.crypto-butler-tr .crypto-butler-th:first-child {
+  justify-content: flex-start;
+}
+
+.crypto-butler-th .thead-tr-th-first {
+  margin-left: 30px;
 }
 
 .crypto-butler-th {
@@ -21,11 +38,21 @@
   justify-content: center;
 }
 
+.crypto-butler-th div:first-child {
+  margin-left: 30px;
+}
+
 .crypto-butler-th p {
   font-size: 14px;
 }
 
-.crypto-butler-th img {
+.crypto-butler-th .table-coin-image-box {
   width: 25px;
-  margin-right: 15px;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.crypto-butler-th .table-coin-image-box img {
+  width: 100%;
+  height: 100%;
 }

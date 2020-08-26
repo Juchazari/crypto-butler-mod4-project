@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import './PortfolioShow.css';
-import Header from './Header';
-import CoinsTable from './CoinsTable';
-import TransactionsTable from './TransactionsTable';
+import './Portfolio.css';
+import Header from './Sections/Header/Header';
+import PortfolioTable from './Sections/PortfolioTable/PortfolioTable';
+import TransactionsTable from './Sections/TransactionsTable/TransactionsTable';
+import DeletePortfolioModal from './Modals/DeletePortfolioModal';
 
-const PortfolioShow = (props) => {
+const Portfolio = (props) => {
   const params = useParams();
 
+  const [deleteModal, setDeleteModal] = useState(false);
   const [portfolio, setPortfolio] = useState({});
   const [transactions, setTransactions] = useState([]);
   const [coins, setCoins] = useState([]);
@@ -109,18 +111,41 @@ const PortfolioShow = (props) => {
       });
   };
 
+  const deletePortfolio = () => {
+    setDeleteModal(false);
+    props.deletePortfolio(portfolio);
+  };
+
   return (
-    <div className="portfolio-show">
-      <Header portfolio={portfolio} />
-      <CoinsTable coins={coins} />
-      <TransactionsTable
-        transactions={transactions}
-        updateTransaction={updateTransaction}
-        deleteTransaction={deleteTransaction}
-        newTransaction={newTransaction}
-      />
-    </div>
+    <>
+      <div className="portfolio-show">
+        <Header portfolio={portfolio} />
+        <div className="portfolio-name-main">
+          <div className="portfolio-name-tab">
+            <h2>{portfolio.name}</h2>
+          </div>
+        </div>
+        <PortfolioTable coins={coins} transactions={transactions} />
+        <TransactionsTable
+          transactions={transactions}
+          updateTransaction={updateTransaction}
+          deleteTransaction={deleteTransaction}
+          newTransaction={newTransaction}
+        />
+        <div className="portfolio-danger-zone">
+          <button onClick={() => setDeleteModal(true)}>
+            <i className="fa fa-trash"></i>DELETE PORTFOLIO
+          </button>
+        </div>
+      </div>
+      {deleteModal ? (
+        <DeletePortfolioModal
+          deletePortfolioClick={deletePortfolio}
+          cancelDeleteModal={() => setDeleteModal(false)}
+        />
+      ) : null}
+    </>
   );
 };
 
-export default PortfolioShow;
+export default Portfolio;

@@ -12,7 +12,7 @@ const Header = (props) => {
       });
     }
 
-    return investment;
+    return investment.toFixed(2);
   };
 
   const portfolioAge = () => {
@@ -41,7 +41,7 @@ const Header = (props) => {
     <div className="ps-header">
       <div className="ps-header-tr">
         <div className="ps-header-th">
-          <p>INITIAL INVESTMENT</p>
+          <p>INVESTED</p>
           <span>${initialInvestment()}</span>
         </div>
         <div className="ps-header-th">

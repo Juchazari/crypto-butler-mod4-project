@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Table.css';
 
 const TableBody = (props) => {
-  return <div className="crypto-butler-tbody">{props.children}</div>;
+  const [style, setStyle] = useState('crypto-butler-tbody');
+
+  useEffect(() => {
+    setStyle(props.style);
+  }, []);
+
+  return <div className={style}>{props.children}</div>;
 };
 
 export default TableBody;

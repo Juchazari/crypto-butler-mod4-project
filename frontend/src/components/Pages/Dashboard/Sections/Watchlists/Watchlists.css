@@ -1,0 +1,46 @@
+.watchlists-container {
+  margin-top: 30px;
+}
+
+.watchlists-container h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.wc-name-tab-box {
+  width: 200px;
+  border-radius: 5px 5px 0px 0px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #0d0b13;
+}
+
+.wc-name-tab-box h3 {
+  font-size: 16px;
+}
+
+.tab-container {
+  display: flex;
+  max-width: 1110px;
+  max-height: 40px;
+  cursor: pointer;
+}
+
+.tc-tab-name {
+  /* min-width: 90px;
+  max-width: 120px; */
+  padding: 12px;
+  background-color: #0d0b13;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.tc-tab-name h3 {
+  font-size: 16px;
+}
+
+.create-new-tab {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
